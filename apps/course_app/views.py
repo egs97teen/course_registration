@@ -9,9 +9,9 @@ from django.core.urlresolvers import reverse
 
 # Create your views here.
 def index(request):
-	if 'user' in request.session:   
+	if 'user' in request.session:
 		return render(request, 'course_app/courses.html')
-	else:
+	else:   
 		return render(request, 'course_app/index.html')
 
 def login(request):
