@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Course Info</title>
+  </head>
+  <body>
+    <a href="{% url 'enroll' %}">Courses</a>
+    <a href="{% url 'courses' %}">Home</a>
+    <h1>{{ course.name }}</h1>
+    <h3>Instructor: {{ course.instructor.first_name }} {{ course.instructor.last_name }}</h3>
+
+
+    {% if students %}
+      <h3>Students</h3>
+      {% for student in students %}
+        <p>{{ student.first_name }} {{ student.last_name }}</p>
+      {% endfor %}
+    {% endif %}
+  </body>
+</html>

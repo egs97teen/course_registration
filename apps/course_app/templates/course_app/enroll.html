@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Enroll In A Course!</title>
+  </head>
+  <body>
+    <a href="{% url 'courses' %}">Home</a>
+    <h2>Available Courses</h2>
+    {% if courses %}
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Time</th>
+          <th>Actions</th>
+        </tr>
+        {% for course in courses %}
+        <tr>
+          <td><a href="{% url 'course' course.id %}">{{ course.name }}</td>
+          <td>{{ course.date }} {{ course.time }}</td>
+          <td><a href="{% url 'add_class' course.id %}">enroll</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+  </body>
+</html>

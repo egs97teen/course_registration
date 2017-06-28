@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create A Course</title>
+  </head>
+  <body>
+    <h2>Create A Course</h2>
+    <div id='error'>
+    {% if messages  %}
+    {% for message in messages %}
+      <p>{{message}}</p>
+    {% endfor %}
+  {% endif %}
+    </div>
+    <form class="" action="/add_new" method="post">
+      {% csrf_token %}
+      <p>Name: <input type="text" name="name" value=""></p>
+      <p>Date: <input type="date" name="date" value=""></p>
+      <p>Time: <input type="time" name="time" value=""></p>
+      <p><input type="submit" name="" value="Create"></p>
+    </form>
+    <a href="{% url 'courses' %}">Cancel</a>
+  </body>
+</html>
